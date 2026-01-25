@@ -4,6 +4,7 @@ import seaborn as sns
 from sklearn.preprocessing import PowerTransformer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import Pipeline
 from sklearn.metrics import r2_score
 mm=pd.read_csv("medical_insurance.csv")
 mm=mm.drop_duplicates()
