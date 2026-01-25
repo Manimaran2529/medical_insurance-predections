@@ -14,7 +14,6 @@ mm["smoker"]=mm["smoker"].map({"yes":1,"no":0})
 
 mm=pd.get_dummies(mm ,columns=["region"] ,dtype=int)
 
-
 #cor=mm.corr()
 #plt.figure(figsize=(10,10))
 #sns.heatmap(cor,annot=True,cmap="coolwarm")
@@ -60,3 +59,23 @@ Y_pre=lr.predict(X_test)
 
 print("R2score",r2_score(Y_test_tf,Y_pre))
 
+
+bmi=int(input(" Enter your  Body Mass Index :"))
+age=int(input("enter your age:"))
+smoker=input("do you smoke  yes or No :").lower()
+
+if smoker=="yes":
+    smoker=1
+else:
+    smoker=0
+list1=pd.DataFrame(
+    [[bmi,age,smoker]],
+    columns=["bmi","age","smoker"])
+
+list_1=pt_x.transform(list1)
+
+y_predict=lr.predict(list_1)
+
+list_2=pt_y.inverse_transform(y_predict)
+
+print("your medical insurance is:",list_2)
