@@ -39,6 +39,9 @@ pipe=Pipeline([
     ("LinearRegression",LinearRegression())
 ])
 pipe.fit(x_train,y_train)
-y_pred=pipe.predict(x_test)
+y_test_pre=pipe.predict(x_test)
+x_train_pre=pipe.predict(x_train)
 
-print("r2_score",r2_score(y_test,y_pred))
+print("train",r2_score(y_train,x_train_pre))
+print("test",r2_score(y_test,y_test_pre))
+      
