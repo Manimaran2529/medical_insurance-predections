@@ -2,7 +2,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import PowerTransformer
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split,cross_val_score
 from sklearn.linear_model import LinearRegression
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import r2_score
@@ -45,3 +45,11 @@ x_train_pre=pipe.predict(x_train)
 print("train",r2_score(y_train,x_train_pre))
 print("test",r2_score(y_test,y_test_pre))
       
+crossvalidation=cross_val_score(
+    pipe,
+    x,
+    y,
+    cv=5,
+    scoring="r2"
+)
+print(crossvalidation)
