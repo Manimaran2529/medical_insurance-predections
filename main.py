@@ -79,4 +79,4 @@ y_predict=lr.predict(list_1)
 
 list_2=pt_y.inverse_transform(y_predict)
 
-print("your medical insurance 
+print("your medical insurance is:",list_2)
